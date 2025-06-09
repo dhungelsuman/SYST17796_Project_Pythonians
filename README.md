@@ -16,8 +16,8 @@ The focus of this project is to apply object-oriented programming principles, no
 
 | Name             | Student ID | GitHub Username  | Role                      |
 |------------------|------------|------------------|---------------------------|
-| Suman Dhungel    | 991754261  | @SumanDhungel1     |                         |
-| Bob Example       | 987654321  | @bobDev           |                         |
-| Charlie Example   | 456789123  | @charlie-code     |                         |
-| Dana Example      | 321654987  | @danaDesigns      |                         |
+| Suman Dhungel    | 991754261  | @dhungelsuman     | Team Leader                   |
+| Hammed Seehar      | 991778514  | @hammerTodder          |   Class Diagram                      |
+| Chris Jude Stellus   | 991760135  | @chrisjude777    |  Team Contract                     |
+| Prabmehak Singh      | 991459463  | @prabmehaksingh     |  Design Document Template                 |
 
