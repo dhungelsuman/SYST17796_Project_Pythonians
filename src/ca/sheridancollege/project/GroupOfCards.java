@@ -84,7 +84,7 @@ public class GroupOfCards {
      */
     public void addCardsBottom(List<Card> cardsToAdd) {
         if (cardsToAdd != null && !cardsToAdd.isEmpty()) {
-            this.cards.addAll(cardsToAdd);
+            this.cards.addAll(cardsToAdd); //bulk addition
         }
     }
 

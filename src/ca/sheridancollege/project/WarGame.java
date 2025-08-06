@@ -73,6 +73,11 @@ public class WarGame extends Game {
     }
     deck.shuffle();
     System.out.println("Deck generated and shuffled.");
+
+    //printing the deck
+    System.out.println(deck.getCards());
+    System.out.println("Total cards in the deck " + deck.getCardCount());
+    System.out.println();
   }
 
   /**
@@ -161,34 +166,65 @@ public class WarGame extends Game {
       return;
     }
     if (player2.getHand().getCardCount() < 4) {
-      System.out.println(
-          player2.getName() + " does not have enough cards for war. " + player1.getName() + " wins by default!");
+      System.out.println(player2.getName() + " does not have enough cards for war!");
+      System.out.println(player1.getName() + " wins by default!");
+      System.out.println("\nTransferring cards:");
+      System.out.println("  Prize pile (" + currentPrizePile.size() + " cards): " + currentPrizePile);
+
       player1.addCardsToBottom(currentPrizePile); // Player 1 gets current pile
+
       // Player 1 gets all remaining cards from Player 2
+      System.out.print("  " + player2.getName() + "'s remaining cards: ");
+      List<Card> remainingCards = new ArrayList<>();
       while (player2.hasCards()) {
-        player1.addCard(player2.drawCard());
+        Card card = player2.drawCard();
+        remainingCards.add(card);
+        player1.addCard(card);
       }
+      System.out.println(remainingCards);
+      System.out.println("  Total cards transferred to " + player1.getName() + ": " +
+          (currentPrizePile.size() + remainingCards.size()));
       return;
     }
 
     // Both players have enough cards for war, proceed
     List<Card> warCards = new ArrayList<>(currentPrizePile);
 
-    // Each player places 3 cards face-down
+    System.out.println();
+    System.out.println("WAR! Each player places draw 4 cards where they hide 3 and show 1.");
+    
+    System.out.println();
+    System.out.println(player1.getName() + " has ");
+    System.out.println();
+    // Each player draws 3 cards and hides it
     for (int i = 0; i < 3; i++) {
-      warCards.add(player1.drawCard());
-      warCards.add(player2.drawCard());
+      Card c = player1.drawCard();
+      warCards.add(c);
+      System.out.println(c + " (hidden)");
     }
 
-    // Each player places 1 card face-up to compare
+    System.out.println("___________________________");
+    
+    System.out.println();
+    System.out.println(player2.getName() + " has ");
+    System.out.println();
+
+    for (int i = 0;i<3;i++) {
+            Card d = player2.drawCard();
+      warCards.add(d);
+      System.out.println(d+" (hidden)");
+    }
+    // Each player draws 1 more card to compare
     StandardCard warCard1 = player1.drawCard();
     StandardCard warCard2 = player2.drawCard();
     warCards.add(warCard1);
     warCards.add(warCard2);
-
-    System.out
-        .println("War cards - " + player1.getName() + ": " + warCard1 + ", " + player2.getName() + ": " + warCard2);
-
+    
+    System.out.println();
+    System.out.println(player1.getName() + " war card: " + warCard1 +" (shown)");
+    System.out.println(player2.getName() + " war card: " + warCard2 + " (shown)");
+    System.out.println();
+    
     int warComparison = Integer.compare(warCard1.getValue(), warCard2.getValue());
     if (warComparison > 0) {
       System.out.println(player1.getName() + " wins the war!");
