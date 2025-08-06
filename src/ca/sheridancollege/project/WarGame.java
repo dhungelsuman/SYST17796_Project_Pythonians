@@ -21,7 +21,7 @@ import java.util.Scanner;
  */
 public class WarGame extends Game {
 
-  private static final int MAX_ROUNDS = 150; // Prevent infinite games
+  private static final int MAX_ROUNDS = 10; // Prevent infinite games
   private GroupOfCards deck; // The main deck of 52 cards
   private WarPlayer player1;
   private WarPlayer player2;
