@@ -74,7 +74,7 @@ public class WarGame extends Game {
     deck.shuffle();
     System.out.println("Deck generated and shuffled.");
 
-    //printing the deck
+    // printing deck
     System.out.println(deck.getCards());
     System.out.println("Total cards in the deck " + deck.getCardCount());
     System.out.println();
@@ -192,7 +192,7 @@ public class WarGame extends Game {
 
     System.out.println();
     System.out.println("WAR! Each player places draw 4 cards where they hide 3 and show 1.");
-    
+
     System.out.println();
     System.out.println(player1.getName() + " has ");
     System.out.println();
@@ -204,27 +204,27 @@ public class WarGame extends Game {
     }
 
     System.out.println("___________________________");
-    
+
     System.out.println();
     System.out.println(player2.getName() + " has ");
     System.out.println();
 
-    for (int i = 0;i<3;i++) {
-            Card d = player2.drawCard();
+    for (int i = 0; i < 3; i++) {
+      Card d = player2.drawCard();
       warCards.add(d);
-      System.out.println(d+" (hidden)");
+      System.out.println(d + " (hidden)");
     }
     // Each player draws 1 more card to compare
     StandardCard warCard1 = player1.drawCard();
     StandardCard warCard2 = player2.drawCard();
     warCards.add(warCard1);
     warCards.add(warCard2);
-    
+
     System.out.println();
-    System.out.println(player1.getName() + " war card: " + warCard1 +" (shown)");
+    System.out.println(player1.getName() + " war card: " + warCard1 + " (shown)");
     System.out.println(player2.getName() + " war card: " + warCard2 + " (shown)");
     System.out.println();
-    
+
     int warComparison = Integer.compare(warCard1.getValue(), warCard2.getValue());
     if (warComparison > 0) {
       System.out.println(player1.getName() + " wins the war!");
